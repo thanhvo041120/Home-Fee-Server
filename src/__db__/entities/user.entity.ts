@@ -1,29 +1,32 @@
-import { Table, Column, Model, DataType } from 'sequelize-typescript';
+import { Table, Column, Model, DataType, Unique } from 'sequelize-typescript';
 
 @Table
-export class User extends Model<User>{
-    @Column({
-        type: DataType.STRING,
-        allowNull: false,
-    })
-    fullname: string;
+export class User extends Model<User> {
+  @Column({
+    type: DataType.STRING,
+    allowNull: false,
+  })
+  _fullname: string;
 
-    @Column({
-        type: DataType.STRING,
-        unique: true,
-        allowNull: false,
-    })
-    email: string;
+  @Unique(true)
+  @Column({
+    type: DataType.STRING,
+    unique: true,
+    allowNull: false,
+  })
+  _email: string;
 
-    @Column({
-        type: DataType.STRING,
-        allowNull: false,
-    })
-    password: string;
+  @Column({
+    type: DataType.STRING,
+    allowNull: false,
+  })
+  _password: string;
 
-    @Column({
-        type: DataType.STRING,
-        allowNull: false,
-    })
-    phonenumber: string;
+  @Unique(true)
+  @Column({
+    type: DataType.STRING,
+    allowNull: false,
+  })
+  _phonenumber: string;
+
 }
